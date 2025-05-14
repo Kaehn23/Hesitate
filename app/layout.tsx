@@ -28,11 +28,7 @@ export default function RootLayout({ children }: { children: any }) {
          <html lang="en" suppressHydrationWarning>
             <head />
             <body>
-               <ThemeProvider
-                  attribute="class"
-                  defaultTheme="system"
-                  enableSystem
-                  disableTransitionOnChange
+               <ThemeProvider                  
                >
                   <Navbar />
                   {children}

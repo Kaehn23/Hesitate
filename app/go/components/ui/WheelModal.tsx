@@ -7,7 +7,7 @@ import {
    DialogContent,
    DialogHeader,
    DialogTitle,
-} from "../../../components/ui/dialog"
+} from "@/app/ui/dialog"
 import { WheelOfFortune } from "../WheelOfFortune"
 
 const modalVariants = {

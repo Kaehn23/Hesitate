@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { SparklesCore } from "./ui/sparkles";
+import { SparklesCore } from "@/app/ui/sparkles";
 import { useTheme } from "next-themes";
-import { FlipWords } from "./ui/flip-word";
-import { GlassButton } from "./ui/GlassButton";
-import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
-import { Modal } from "./ui/Modal";
+import { FlipWords } from "@/app/ui/flip-word";
+import { GlassButton } from "@/app/ui/GlassButton";
+import { InfiniteMovingCards } from "@/app/ui/infinite-moving-cards";
+import { Modal } from "@/app/ui/Modal";
 import { useRouter } from "next/navigation";
 
 
@@ -35,8 +35,8 @@ const Hero = () => {
    };
 
    return (
-      <div className="min-h-[calc(100vh-1.5rem)] w-screen bg-white dark:bg-black flex flex-col items-center justify-center overflow-hidden">
-         <h1 className="md:text-7xl text-3xl lg:text-9xl mx-auto font-bold text-center text-black dark:text-white relative z-20">
+      <div className="min-h-[calc(100vh-1.5rem)] w-screen pt-24 bg-white dark:bg-black flex flex-col items-center justify-center overflow-hidden">
+         <h1 className="md:text-7xl text-3xl  lg:text-9xl mx-auto font-bold text-center text-black dark:text-white relative z-20">
             <FlipWords
                words={words}
                duration={5000}

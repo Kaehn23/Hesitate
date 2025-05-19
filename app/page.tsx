@@ -1,13 +1,19 @@
 
-import Hero from "./components/Hero";
+import Hero from './components/Hero'
+import React from 'react'
 
-export default function Home() {
-   return (
-      <div>
-         <main >
-            
-            <Hero />
-         </main>
-      </div>
-   );
+export const dynamicParams = false
+export function generateStaticParams() {
+	return [{ locale: 'en' }, { locale: 'fr' }]
 }
+
+function page() {
+	return (
+	   <>
+	   
+		  <Hero />
+	   </>
+	);
+ }
+ 
+ export default page;

@@ -7,8 +7,8 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from "@/app/components/ui/dialog"
-import { Button } from "@/app/components/ui/button"
+} from "@/app/ui/dialog"
+import { Button } from "@/app/ui/button"
 import { useRouter } from "next/navigation"
 
 interface ModalProps {

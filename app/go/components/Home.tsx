@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { DynamicList } from "./DynamicList";
-import { SparklesCore } from "@/app/components/ui/sparkles";
+import { SparklesCore } from "@/app/ui/sparkles";
 import { useTheme } from "next-themes";
 
 function Home() {

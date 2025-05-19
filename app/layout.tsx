@@ -1,66 +1,76 @@
-'use client'
+"use client";
 
-import React from 'react'
+import React from "react";
 
+import { ThemeProvider } from "@/context/ThemeContext";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 
-import { usePathname, useRouter } from 'next/navigation'
+import { Geist, Geist_Mono } from "next/font/google";
 
-import { ThemeProvider } from '@/context/ThemeContext'
-import Navbar from '@/app/components/Navbar'
-import Footer from '@/app/components/Footer'
-
-import { Geist, Geist_Mono } from 'next/font/google'
-import en from '@/locales/en.json'
-import fr from '@/locales/fr.json'
-import './globals.css'
-import { Metadata } from 'next'
+import "./globals.css";
+import { Metadata } from "next";
 
 // your fonts
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({
+   variable: "--font-geist-mono",
+   subsets: ["latin"],
+});
 
-
-
-
+export const metadata: Metadata = {
+   title: "Hesitate",
+   description: "Don't hesitate anymore... In anything!",
+   openGraph: {
+      title: "Hesitate",
+      description: "Don't hesitate anymore... In anything!",
+      url: "https://hesitate.vercel.app",
+      siteName: "Hesitate",
+      locale: "en_US",
+      type: "website",
+      images: [
+         {
+            url: "/opengraph-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Hesitate OpenGraph Image",
+         },
+      ],
+   },
+   twitter: {
+      card: "summary_large_image",
+      title: "Hesitate",
+      description: "Don't hesitate anymore... In anything!",
+      images: ["/opengraph-image.png"],
+   },
+};
 
 export default function LocaleLayout({
-  children,
-  params: { locale },
+   children,
 }: {
-  children: React.ReactNode
-  params: { locale: 'en' | 'fr' }
-}) {
-  // pick translations
-  const t = locale === 'fr' ? fr : en
-
-  // strip the /en or /fr prefix from the current path
-  const path = usePathname().replace(/^\/(en|fr)/, '')
-  const router = useRouter()
-  const toggleLocale = () => {
-    const next = locale === 'en' ? 'fr' : 'en'
-    router.push(`/${next}${path}`)
-  }
-
-  return (
-    <html
-      lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable}`}
-      suppressHydrationWarning
-    >
-      <head />
-      <body>
-        <ThemeProvider>
-          <Navbar />
-
-          {/* your locale toggle */}
-          
-
-          {/* inject `t` into pages */}
-          {React.cloneElement(children as React.ReactElement, {  })}
-
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
-  )
+   children: React.ReactNode;
+}): React.ReactElement {
+   return (
+      <html
+         lang="en"
+         className={`${geistSans.variable} ${geistMono.variable}`}
+         suppressHydrationWarning
+      >
+         <head>
+            <link rel="icon" href="/favicon.ico" />
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1"
+            />
+            <link rel="canonical" href="https://hesitate.vercel.app/" />
+         </head>
+         <body>
+            <ThemeProvider>
+               <Navbar />
+               {children}
+               <Footer />
+            </ThemeProvider>
+         </body>
+      </html>
+   );
 }
